@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Facility — RBU Sports</title>
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.jpg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="has-bottom-nav">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="/bookings.html" class="header-brand-link">
+          <img src="/images/rbu-horizontal-logo.png" alt="Ramdeobaba University" class="header-logo-banner">
+          <div class="header-title-group">
+            <span class="header-sports-title">Sports</span>
+            <span class="header-subtitle">Facility Booking</span>
+          </div>
+        </a>
+      </div>
+      <div class="header-user" id="userGreeting">
+        <!-- Filled by JS -->
+      </div>
+      <nav class="header-nav">
+        <a href="/bookings.html" class="active">Book Slot</a>
+        <a href="/my-bookings.html">My Bookings</a>
+        <button id="logoutBtnTop" type="button">Log out</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Live Connection Indicator (Shows only when disconnected) -->
+  <div id="connectionPill" class="connection-status" role="status" aria-live="polite">
+    Reconnecting live updates...
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <h1 class="page-title">Book a Facility</h1>
+    <p class="page-description">
+      Select a sport, choose a date, and pick an available time slot.
+    </p>
+
+    <!-- Global Alert / Status Box -->
+    <div id="bookingAlert" class="alert" role="alert"></div>
+
+    <!-- Facility Selector (Horizontal scrollable pills on mobile) -->
+    <div class="form-group">
+      <label for="facilitySelect">Choose Facility</label>
+      <div class="date-picker" id="facilityPills" role="tablist" aria-label="Facilities">
+        <!-- Filled dynamically by JS -->
+      </div>
+    </div>
+
+    <!-- 7-Day Date Picker (Horizontal scroll) -->
+    <div class="form-group">
+      <label>Select Date (Up to 7 days ahead)</label>
+      <div class="date-picker" id="datePicker" role="tablist" aria-label="Booking Dates">
+        <!-- 7 date chips populated by JS -->
+      </div>
+    </div>
+
+    <!-- Selected Facility Info Notice -->
+    <div class="alert alert-info" id="facilityNotice">
+      <strong id="facilityNameDisplay">Loading facility...</strong>
+      <div id="facilityDescDisplay" class="help-text">Please wait.</div>
+    </div>
+
+    <!-- Slot Grid -->
+    <div class="slot-grid-header">
+      Available Slots (<span id="slotCount">0</span>)
+    </div>
+
+    <div id="slotsContainer" class="slot-grid" role="region" aria-live="polite">
+      <div class="loading">
+        <span class="spinner"></span> Loading slots...
+      </div>
+    </div>
+  </main>
+
+  <!-- Hold Bar (Phase 3 will wire up the confirm action) -->
+  <div class="hold-bar" id="holdBar" role="dialog" aria-label="Hold Reservation">
+    <div class="hold-bar-inner">
+      <div class="hold-bar-info">
+        Slot held for <span class="hold-bar-timer" id="holdTimer">05:00</span>.
+        Confirm before timer runs out to reserve.
+      </div>
+      <div class="hold-bar-actions">
+        <button type="button" class="btn btn-secondary btn-small" id="cancelHoldBtn">Release</button>
+        <button type="button" class="btn btn-primary btn-small" id="confirmBookingBtn">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="/bookings.html" class="active">
+      <span class="nav-icon">&#9917;</span>
+      <span>Book</span>
+    </a>
+    <a href="/my-bookings.html">
+      <span class="nav-icon">&#128197;</span>
+      <span>My Bookings</span>
+    </a>
+    <a href="#" id="logoutBtnBottom">
+      <span class="nav-icon">&#128682;</span>
+      <span>Log out</span>
+    </a>
+  </nav>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/slots.js"></script>
+</body>
+</html>
+

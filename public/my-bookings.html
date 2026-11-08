@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bookings — RBU Sports</title>
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.jpg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="has-bottom-nav">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="/bookings.html" class="header-brand-link">
+          <img src="/images/rbu-horizontal-logo.png" alt="Ramdeobaba University" class="header-logo-banner">
+          <div class="header-title-group">
+            <span class="header-sports-title">Sports</span>
+            <span class="header-subtitle">Facility Booking</span>
+          </div>
+        </a>
+      </div>
+      <div class="header-user" id="userGreeting">
+        <!-- Filled by JS -->
+      </div>
+      <nav class="header-nav">
+        <a href="/bookings.html">Book Slot</a>
+        <a href="/my-bookings.html" class="active">My Bookings</a>
+        <button id="logoutBtnTop" type="button">Log out</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1 class="page-title">My Bookings</h1>
+    <p class="page-description">
+      Review your reservations or cancel a slot if your plans change.
+    </p>
+
+    <!-- Global Alert -->
+    <div id="bookingAlert" class="alert" role="alert"></div>
+
+    <!-- Tabs: Upcoming vs Past -->
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab-btn active" id="tabUpcoming" role="tab" aria-selected="true">
+        Upcoming (<span id="upcomingCount">0</span>)
+      </button>
+      <button type="button" class="tab-btn" id="tabPast" role="tab" aria-selected="false">
+        Past & Cancelled (<span id="pastCount">0</span>)
+      </button>
+    </div>
+
+    <!-- Booking List Container -->
+    <div id="bookingsList" class="booking-list" role="region" aria-live="polite">
+      <div class="loading">
+        <span class="spinner"></span> Loading your bookings...
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="/bookings.html">
+      <span class="nav-icon">&#9917;</span>
+      <span>Book</span>
+    </a>
+    <a href="/my-bookings.html" class="active">
+      <span class="nav-icon">&#128197;</span>
+      <span>My Bookings</span>
+    </a>
+    <a href="#" id="logoutBtnBottom">
+      <span class="nav-icon">&#128682;</span>
+      <span>Log out</span>
+    </a>
+  </nav>
+
+  <script src="/js/my-bookings.js"></script>
+</body>
+</html>
+

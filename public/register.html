@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="page-auth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Register — RBU Sports</title>
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.jpg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="page-auth">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="/" class="header-brand-link">
+          <img src="/images/rbu-horizontal-logo.png" alt="Ramdeobaba University" class="header-logo-banner">
+          <div class="header-title-group">
+            <span class="header-sports-title">Sports</span>
+            <span class="header-subtitle">Facility Booking</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="auth-page">
+      <div class="auth-form-container">
+
+        <!-- STEP 1: Enter RBU Email -->
+        <div id="step1Section">
+          <h1 class="page-title">Student Registration</h1>
+          <p class="page-description">
+            Enter your official college email. A 6-digit verification code will be sent to activate your account.
+          </p>
+
+          <div id="step1Alert" class="alert" role="alert"></div>
+
+          <form id="step1Form" novalidate>
+            <div class="form-group">
+              <label for="regEmail">College Email Address</label>
+              <input type="email" id="regEmail" name="email" placeholder="e.g. yourname@rbunagpur.in"
+                autocomplete="email" required>
+              <div class="help-text">Must be an official email ending in <strong>@rbunagpur.in</strong></div>
+            </div>
+
+            <div class="form-group">
+              <label for="regName">Full Name</label>
+              <input type="text" id="regName" name="name" placeholder="e.g. Ojas Lekurwale" autocomplete="name"
+                required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="sendCodeBtn">Get Verification Code</button>
+          </form>
+
+          <p class="auth-link">
+            Already have an account? <a href="/index.html">Log in</a>
+          </p>
+        </div>
+
+        <!-- STEP 2: Enter Verification Code & Set Password -->
+        <div id="step2Section" class="hidden">
+          <h1 class="page-title">Set Password</h1>
+          <p class="page-description" id="step2Subtitle">
+            Enter the 6-digit code sent to your email and choose a password.
+          </p>
+
+          <div id="step2Alert" class="alert" role="alert"></div>
+
+          <form id="step2Form" novalidate>
+            <input type="hidden" id="verifiedEmail" name="email">
+
+            <div class="form-group">
+              <label for="otpCode">6-Digit Verification Code</label>
+              <input type="text" id="otpCode" name="otp" inputmode="numeric" pattern="[0-9]*" maxlength="6"
+                class="otp-input" placeholder="123456" autocomplete="one-time-code" required>
+              <div class="help-text">Check your inbox. Valid for 10 minutes.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="newPassword">Create Password</label>
+              <div class="input-wrapper">
+                <input type="password" id="newPassword" name="password" placeholder="At least 8 characters"
+                  autocomplete="new-password" required>
+                <button type="button" class="toggle-password" id="toggleNewPasswordBtn"
+                  aria-label="Show password">Show</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" name="confirm_password" placeholder="Re-enter password"
+                autocomplete="new-password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-sm" id="completeRegBtn">Create Account & Log In</button>
+            <button type="button" class="btn btn-secondary" id="resendCodeBtn">Resend Code</button>
+          </form>
+
+          <p class="auth-link">
+            Wrong email address? <a href="#" id="backToStep1Btn">Change email</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/auth.js"></script>
+</body>
+
+</html>

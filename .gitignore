@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Secrets - never commit real credentials
+.env
+.env.*
+!.env.example
+
+# SQLite database files (the DB lives on a persistent disk in production)
+data/*.sqlite
+data/*.sqlite-shm
+data/*.sqlite-wal
+
+# Backups and generated files
+backups/
+coverage/
+uploads/
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
